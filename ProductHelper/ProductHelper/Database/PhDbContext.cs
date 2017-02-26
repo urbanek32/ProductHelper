@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using DataModels.Database;
 
 namespace ProductHelper.Database
@@ -7,6 +8,12 @@ namespace ProductHelper.Database
     {
         public PhDbContext() : base("PhContext")
         {
+            var connectionString = Environment.GetEnvironmentVariable("SQLAZURECONNSTR_PhContext");
+            if (!string.IsNullOrWhiteSpace(connectionString))
+            {
+                this.Database.Connection.ConnectionString = connectionString;
+            }
+
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
         }
