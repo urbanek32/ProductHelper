@@ -30,6 +30,9 @@ namespace ProductHelper
                       "~/Scripts/select2/select2.min.js",
                       "~/Scripts/select2/i18n/pl.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                      "~/Scripts/app/home.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/select2/select2.min.css",
