@@ -151,7 +151,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\AilmentController.cs" />
     <Compile Include="Controllers\Api\ProductController.cs" />
+    <Compile Include="Controllers\View\AilmentsController.cs" />
     <Compile Include="Controllers\View\HomeController.cs" />
+    <Compile Include="Controllers\View\ProductsController.cs" />
     <Compile Include="Database\PhDbContext.cs" />
     <Compile Include="Database\PhInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,6 +184,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\productHelper - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\app\createProduct.js" />
     <Content Include="Scripts\app\home.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -267,6 +270,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ailments\Create.cshtml" />
+    <Content Include="Views\Ailments\Delete.cshtml" />
+    <Content Include="Views\Ailments\Details.cshtml" />
+    <Content Include="Views\Ailments\Edit.cshtml" />
+    <Content Include="Views\Ailments\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

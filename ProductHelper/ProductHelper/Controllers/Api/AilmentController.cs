@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using DataModels.Database;
+using DataModels.Request;
 using DataModels.Response;
 using ProductHelper.Services;
 

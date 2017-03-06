@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using AutoMapper;
 using DataModels.Database;
+using DataModels.Request;
 using DataModels.Response;
 using ProductHelper.Database;
 
@@ -12,6 +13,7 @@ namespace ProductHelper.Services
     {
         Task<Ailment> GetById(int id);
         Task<List<AilmentResponse>> GetList();
+        void CreateAilment(CreateAilmentRequest request);
     }
 
     public class AilmentsService : IAilmentsService
@@ -38,6 +40,20 @@ namespace ProductHelper.Services
             {
                 var ailments = await db.Ailments.ToListAsync();
                 return Mapper.Map<List<AilmentResponse>>(ailments);
+            }
+        }
+
+        public void CreateAilment(CreateAilmentRequest request)
+        {
+            using (var db = new PhDbContext())
+            {
+                var ailment = new Ailment
+                {
+                    Name = request.Name
+                };
+
+                db.Ailments.Add(ailment);
+                db.SaveChanges();
             }
         }
     }

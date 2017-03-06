@@ -5,7 +5,7 @@ using DataModels.Database;
 
 namespace ProductHelper.Database
 {
-    public class PhInitializer : DropCreateDatabaseAlways<PhDbContext>
+    public class PhInitializer : DropCreateDatabaseIfModelChanges<PhDbContext>
     {
         protected override void Seed(PhDbContext context)
         {
