@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DataModels.Request
@@ -10,5 +11,7 @@ namespace DataModels.Request
 
         [Display(Name = "Select associated ailments")]
         public ICollection<int> AilmentsCollection { get; set; }
+
+        public int[] SelectedAilments { get; set; }
     }
 }

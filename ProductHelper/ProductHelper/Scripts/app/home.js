@@ -10,8 +10,8 @@ var ViewModel = function() {
     self.products = ko.observableArray();
     self.error = ko.observable();
 
-    var ailmentsUri = "api/ailment/";
-    var productsUri = "api/product/";
+    var ailmentsUri = "/api/ailment/";
+    var productsUri = "/api/product/";
 
     function ajaxHelper(uri, method, data) {
         self.error("");

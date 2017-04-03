@@ -58,10 +58,10 @@ namespace ProductHelper.Services
                     Name = request.Name
                 };
 
-                if (request.AilmentsCollection != null && request.AilmentsCollection.Count > 0)
+                if (request.SelectedAilments != null && request.SelectedAilments.Length > 0)
                 {
                     var ailments = db.Ailments
-                    .Where(a => request.AilmentsCollection.Contains(a.Id))
+                    .Where(a => request.SelectedAilments.Contains(a.Id))
                     .ToList();
 
                     product.Ailments = ailments;

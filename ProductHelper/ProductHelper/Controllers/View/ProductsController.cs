@@ -16,7 +16,9 @@ namespace ProductHelper.Controllers.View
     public class ProductsController : Controller
     {
         private PhDbContext db = new PhDbContext();
+
         private readonly ProductsService _productsService = new ProductsService();
+        private readonly AilmentsService _ailmentsService = new AilmentsService();
 
         public ActionResult Index()
         {

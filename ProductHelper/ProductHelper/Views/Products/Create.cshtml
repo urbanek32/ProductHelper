@@ -4,7 +4,8 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create new product</h2>
+<hr/>
 
 
 @using (Html.BeginForm()) 
@@ -12,8 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
+        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="row">
             <div class="form-group">
@@ -29,7 +29,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.AilmentsCollection, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-6">
-                    <select id="AilmentsCollection" class="selectpicker" multiple style="width: 100%"
+                    <select id="SelectedAilments" name="SelectedAilments" class="selectpicker" multiple style="width: 100%"
                             data-bind="selectedOptions: selectedAilmentsId,
                             options: ailments,
                             optionsText:'Name',
@@ -37,12 +37,6 @@
                     </select>
                     @Html.ValidationMessageFor(model => model.AilmentsCollection, "", new { @class = "text-danger" })
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-9">
-            <div class="">
-                
             </div>
         </div>
 
