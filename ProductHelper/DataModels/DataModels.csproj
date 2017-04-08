@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\Ailment.cs" />
+    <Compile Include="Database\Ingredient.cs" />
     <Compile Include="Database\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\AilmentRequest.cs" />
     <Compile Include="Request\CreateAilmentRequest.cs" />
     <Compile Include="Request\CreateProductRequest.cs" />
     <Compile Include="Request\ProductRequest.cs" />
+    <Compile Include="Response\IngredientResponse.cs" />
     <Compile Include="Response\AilmentResponse.cs" />
     <Compile Include="Response\ProductResponse.cs" />
   </ItemGroup>

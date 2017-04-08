@@ -17,11 +17,6 @@ namespace ProductHelper.Controllers.Api
             _productService = new ProductsService();    
         }
 
-        public Task<Product> Get(int id)
-        {
-            return _productService.GetById(id);
-        }
-
         public Task<List<ProductResponse>> Post(ProductRequest request)
         {
             return _productService.GetListByAilmentsId(request);

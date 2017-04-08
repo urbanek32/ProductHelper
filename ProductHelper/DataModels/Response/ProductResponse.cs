@@ -9,5 +9,7 @@ namespace DataModels.Response
         public string Name { get; set; }
 
         public List<AilmentResponse> Ailments { get; set; }
+
+        public List<IngredientResponse> Ingredients { get; set; }
     }
 }

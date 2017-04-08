@@ -12,6 +12,7 @@ namespace ProductHelper
             {
                 cfg.CreateMap<Product, ProductResponse>();
                 cfg.CreateMap<Ailment, AilmentResponse>();
+                cfg.CreateMap<Ingredient, IngredientResponse>();
             });
         }
     }

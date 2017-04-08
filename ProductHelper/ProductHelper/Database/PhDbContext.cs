@@ -20,6 +20,7 @@ namespace ProductHelper.Database
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Ailment> Ailments { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

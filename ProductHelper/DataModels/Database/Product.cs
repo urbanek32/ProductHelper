@@ -10,6 +10,8 @@ namespace DataModels.Database
         [Required]
         public string Name { get; set; }
 
+        public ICollection<Ingredient> Ingredients { get; set; }
+
         public ICollection<Ailment> Ailments { get; set; }
     }
 }

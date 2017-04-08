@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Mvc.Html;
 using AutoMapper;
 using DataModels.Database;
 using DataModels.Request;
@@ -12,7 +13,6 @@ namespace ProductHelper.Services
 {
     public interface IProductsService
     {
-        Task<Product> GetById(int id);
         Task<List<ProductResponse>> GetListByAilmentsId(ProductRequest request);
         void CreateProduct(CreateProductRequest request);
     }
@@ -24,25 +24,25 @@ namespace ProductHelper.Services
             
         }
 
-        public async Task<Product> GetById(int id)
-        {
-            using (var db = new PhDbContext())
-            {
-                var product = await db.Products
-                    .Include(p => p.Ailments)
-                    .SingleOrDefaultAsync(p => p.Id == id);
-
-                return product;
-            }
-        }
-
         public async Task<List<ProductResponse>> GetListByAilmentsId(ProductRequest request)
         {
             using (var db = new PhDbContext())
             {
-                var products = await db.Products
+                /*var products = await db.Products
+                    .Include(p => p.Ingredients)
+                    .Include(p => p.Ingredients.Select(i => i.CureAilments))
+                    .Where(p => p.Ingredients.Any(i => i.CureAilments.Where(request.AilmentsIds.Contains(i.Id))))
+                    .ToListAsync();
+
+                return Mapper.Map<List<ProductResponse>>(products);*/
+
+                var products = await db.Ingredients
+                    .Include(i => i.CureAilments)
+                    .Where(p => p.CureAilments.Any(a => request.AilmentsIds.Contains(a.Id)))
+                    .SelectMany(i => i.Products)
+                    .Include(p => p.Ingredients)
                     .Include(p => p.Ailments)
-                    .Where(p => p.Ailments.Any(a => request.AilmentsIds.Contains(a.Id)))
+                    .Distinct()
                     .ToListAsync();
 
                 return Mapper.Map<List<ProductResponse>>(products);
@@ -64,7 +64,7 @@ namespace ProductHelper.Services
                     .Where(a => request.SelectedAilments.Contains(a.Id))
                     .ToList();
 
-                    product.Ailments = ailments;
+                    //product.Ailments = ailments;
                 }
 
                 db.Products.Add(product);
